@@ -22,15 +22,20 @@ router.post('/signup', async (req, res) => {
     await user.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
-    console.error(error); // Log the full error
+    console.error(error);
+    
+    // Handle phone validation error
+    if (error.message && error.message.includes('phone')) {
+      return res.status(400).json({ 
+        message: 'Please enter a valid phone number with country code' 
+      });
+    }
+    
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 });
 
-
 // Login
-// Login
-// Login route in backend (adjusted)
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -52,9 +57,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
-
-// Logout (example placeholder)
+// Logout
 router.post('/logout', (req, res) => {
   res.status(200).json({ message: 'Logged out successfully' });
 });

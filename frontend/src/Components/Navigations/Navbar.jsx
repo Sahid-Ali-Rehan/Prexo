@@ -21,61 +21,61 @@ const Navbar = () => {
     iphone: {
       label: "IPHONE",
       items: [
-        { name: "IPHONE 15 PRO", link: "/category/iphone/15-pro", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://images.macrumors.com/t/SuHt0iQuSjaO-ExOZzJieONGf_I=/2500x/article-new/2023/09/iPhone-15-Pro-Lineup-Feature.jpg" },
-        { name: "IPHONE 15", link: "/category/iphone/15", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1692923777972" },
-        { name: "IPHONE 14", link: "/category/iphone/14", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1660676485882" },
-        { name: "IPHONE 13", link: "/category/iphone/13", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1657641864458" },
-        { name: "IPHONE SE", link: "/category/iphone/se", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-starlight?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1657641867321" },
+        { name: "IPHONE 15 PRO", link: "/products?category=iphone&subCategory=15-pro", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://images.macrumors.com/t/SuHt0iQuSjaO-ExOZzJieONGf_I=/2500x/article-new/2023/09/iPhone-15-Pro-Lineup-Feature.jpg" },
+        { name: "IPHONE 15", link: "/products?category=iphone&subCategory=15", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-6-1inch?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1692923777972" },
+        { name: "IPHONE 14", link: "/products?category=iphone&subCategory=14", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-1inch?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1660676485882" },
+        { name: "IPHONE 13", link: "/products?category=iphone&subCategory=13", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202207-6-1inch?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1657641864458" },
+        { name: "IPHONE SE", link: "/products?category=iphone&subCategory=se", image: "https://adminapi.applegadgetsbd.com/storage/media/large/iPhone-15-Plus-(2)-(6)-5363.jpg", landscape: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-finish-select-202207-starlight?wid=5120&hei=2880&fmt=webp&qlt=70&.v=1657641867321" },
       ]
     },
     samsung: {
       label: "SAMSUNG",
       items: [
-        { name: "GALAXY S24 ULTRA", link: "/category/samsung/s24-ultra", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-s24-s928-sm-s928bzvcins-thumb-539489855?$650_519_PNG$", landscape: "https://www.sammobile.com/wp-content/uploads/2023/01/galaxy-s23-promo-images-1.jpg" },
-        { name: "GALAXY Z FOLD5", link: "/category/samsung/z-fold5", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-fold5-f946-sm-f946bzkains-thumb-536782070?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-fold5-f946-sm-f946bzkains-536782070?$2160_1728_PNG$" },
-        { name: "GALAXY Z FLIP5", link: "/category/samsung/z-flip5", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-flip5-f731-sm-f731blbgins-thumb-536782049?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-flip5-f731-sm-f731blbgins-536782049?$2160_1728_PNG$" },
-        { name: "GALAXY A SERIES", link: "/category/samsung/a-series", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-a55-5g-a556-sm-a556ezkhins-thumb-539489865?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-a55-5g-a556-sm-a556ezkhins-539489865?$2160_1728_PNG$" },
-        { name: "GALAXY TABLETS", link: "/category/samsung/tablets", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-tab-s9-fe-x616-sm-x616nzaeinu-thumb-535354095?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-tab-s9-fe-x616-sm-x616nzaeinu-535354095?$2160_1728_PNG$" },
+        { name: "GALAXY S24 ULTRA", link: "/products?category=samsung&subCategory=s24-ultra", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-s24-s928-sm-s928bzvcins-thumb-539489855?$650_519_PNG$", landscape: "https://www.sammobile.com/wp-content/uploads/2023/01/galaxy-s23-promo-images-1.jpg" },
+        { name: "GALAXY Z FOLD5", link: "/products?category=samsung&subCategory=z-fold5", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-fold5-f946-sm-f946bzkains-thumb-536782070?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-fold5-f946-sm-f946bzkains-536782070?$2160_1728_PNG$" },
+        { name: "GALAXY Z FLIP5", link: "/products?category=samsung&subCategory=z-flip5", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-flip5-f731-sm-f731blbgins-thumb-536782049?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-z-flip5-f731-sm-f731blbgins-536782049?$2160_1728_PNG$" },
+        { name: "GALAXY A SERIES", link: "/products?category=samsung&subCategory=a-series", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-a55-5g-a556-sm-a556ezkhins-thumb-539489865?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2401/gallery/in-galaxy-a55-5g-a556-sm-a556ezkhins-539489865?$2160_1728_PNG$" },
+        { name: "GALAXY TABLETS", link: "/products?category=samsung&subCategory=tablets", image: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-tab-s9-fe-x616-sm-x616nzaeinu-thumb-535354095?$650_519_PNG$", landscape: "https://images.samsung.com/is/image/samsung/p6pim/in/2307/gallery/in-galaxy-tab-s9-fe-x616-sm-x616nzaeinu-535354095?$2160_1728_PNG$" },
       ]
     },
     vivo: {
       label: "VIVO",
       items: [
-        { name: "X100 PRO", link: "/category/vivo/x100-pro", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/x100pro/x100-pro-kv.png", landscape: "https://vivonewsroom.b-cdn.net/wp-content/uploads/2024/09/vivo-V40E-Press-Release-Banner.jpg" },
-        { name: "X90 PRO", link: "/category/vivo/x90-pro", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/x90pro/x90-pro-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/x90pro/x90-pro-landscape.jpg" },
-        { name: "V29 SERIES", link: "/category/vivo/v29-series", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/v29/v29-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/v29/v29-landscape.jpg" },
-        { name: "T2 SERIES", link: "/category/vivo/t2-series", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/t2/t2-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/t2/t2-landscape.jpg" },
-        { name: "Y SERIES", link: "/category/vivo/y-series", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/y36/y36-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/y36/y36-landscape.jpg" },
+        { name: "X100 PRO", link: "/products?category=vivo&subCategory=x100-pro", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/x100pro/x100-pro-kv.png", landscape: "https://vivonewsroom.b-cdn.net/wp-content/uploads/2024/09/vivo-V40E-Press-Release-Banner.jpg" },
+        { name: "X90 PRO", link: "/products?category=vivo&subCategory=x90-pro", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/x90pro/x90-pro-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/x90pro/x90-pro-landscape.jpg" },
+        { name: "V29 SERIES", link: "/products?category=vivo&subCategory=v29-series", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/v29/v29-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/v29/v29-landscape.jpg" },
+        { name: "T2 SERIES", link: "/products?category=vivo&subCategory=t2-series", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/t2/t2-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/t2/t2-landscape.jpg" },
+        { name: "Y SERIES", link: "/products?category=vivo&subCategory=y-series", image: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/y36/y36-kv.png", landscape: "https://www.vivo.com/content/dam/vivo/in/vivo-new-home-page/phones/y36/y36-landscape.jpg" },
       ]
     },
     oppo: {
       label: "OPPO",
       items: [
-        { name: "FIND N3", link: "/category/oppo/find-n3", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/find-n3/kv/oppo-find-n3-kv-en.png", landscape: "https://image.oppo.com/content/dam/oppo-campaign-site/in/events/store-opening/f21/launch/banner03-pc-v2.jpg.thumb.webp" },
-        { name: "RENO11 PRO", link: "/category/oppo/reno11-pro", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/reno11-pro/kv/reno11-pro-kv.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/reno11-pro/kv/reno11-pro-landscape.jpg" },
-        { name: "F25 PRO", link: "/category/oppo/f25-pro", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/f25-pro/kv/f25-pro-kv.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/f25-pro/kv/f25-pro-landscape.jpg" },
-        { name: "A SERIES", link: "/category/oppo/a-series", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/phones/a18/kv/oppo-a18-kv-en.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/phones/a18/kv/oppo-a18-landscape.jpg" },
-        { name: "ENCO BUDS", link: "/category/oppo/earbuds", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/accessories/enco-buds2/kv/oppo-enco-buds2-kv-en.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/accessories/enco-buds2/kv/oppo-enco-buds2-landscape.jpg" },
+        { name: "FIND N3", link: "/products?category=oppo&subCategory=find-n3", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/find-n3/kv/oppo-find-n3-kv-en.png", landscape: "https://image.oppo.com/content/dam/oppo-campaign-site/in/events/store-opening/f21/launch/banner03-pc-v2.jpg.thumb.webp" },
+        { name: "RENO11 PRO", link: "/products?category=oppo&subCategory=reno11-pro", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/reno11-pro/kv/reno11-pro-kv.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/reno11-pro/kv/reno11-pro-landscape.jpg" },
+        { name: "F25 PRO", link: "/products?category=oppo&subCategory=f25-pro", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/f25-pro/kv/f25-pro-kv.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/new-products/f25-pro/kv/f25-pro-landscape.jpg" },
+        { name: "A SERIES", link: "/products?category=oppo&subCategory=a-series", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/phones/a18/kv/oppo-a18-kv-en.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/phones/a18/kv/oppo-a18-landscape.jpg" },
+        { name: "ENCO BUDS", link: "/products?category=oppo&subCategory=earbuds", image: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/accessories/enco-buds2/kv/oppo-enco-buds2-kv-en.png", landscape: "https://image.oppo.com/content/dam/oppo/in/mkt/homepage/accessories/enco-buds2/kv/oppo-enco-buds2-landscape.jpg" },
       ]
     },
     oneplus: {
       label: "ONEPLUS",
       items: [
-        { name: "ONEPLUS 12", link: "/category/oneplus/12", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-12/spec-image/OnePlus-12-green.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/2021/lemonade/news/oneplus-launches-oneplus-9-series-flagship-smartphones-and-first-ever-oneplus-watch/9%20PRO%20FAMILY.jpg" },
-        { name: "ONEPLUS 12R", link: "/category/oneplus/12r", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-12r/spec-image/OnePlus-12R-iron-gray.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-12r/kv/OnePlus-12R-landscape.jpg" },
-        { name: "ONEPLUS OPEN", link: "/category/oneplus/open", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-open/spec-image/OnePlus-Open-emerald-dusk.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-open/kv/OnePlus-Open-landscape.jpg" },
-        { name: "NORD CE3", link: "/category/oneplus/nord-ce3", image: "https://oasis.opstatics.com/content/dam/oasis/page/nord-ce-3/spec-image/Nord-CE-3-aqua.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/nord-ce-3/kv/Nord-CE-3-landscape.jpg" },
-        { name: "BUDS PRO 2", link: "/category/oneplus/buds-pro2", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-buds-pro-2/spec-image/OnePlus-Buds-Pro-2-obsidian-black.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-buds-pro-2/kv/OnePlus-Buds-Pro-2-landscape.jpg" },
+        { name: "ONEPLUS 12", link: "/products?category=oneplus&subCategory=12", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-12/spec-image/OnePlus-12-green.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/2021/lemonade/news/oneplus-launches-oneplus-9-series-flagship-smartphones-and-first-ever-oneplus-watch/9%20PRO%20FAMILY.jpg" },
+        { name: "ONEPLUS 12R", link: "/products?category=oneplus&subCategory=12r", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-12r/spec-image/OnePlus-12R-iron-gray.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-12r/kv/OnePlus-12R-landscape.jpg" },
+        { name: "ONEPLUS OPEN", link: "/products?category=oneplus&subCategory=open", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-open/spec-image/OnePlus-Open-emerald-dusk.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-open/kv/OnePlus-Open-landscape.jpg" },
+        { name: "NORD CE3", link: "/products?category=oneplus&subCategory=nord-ce3", image: "https://oasis.opstatics.com/content/dam/oasis/page/nord-ce-3/spec-image/Nord-CE-3-aqua.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/nord-ce-3/kv/Nord-CE-3-landscape.jpg" },
+        { name: "BUDS PRO 2", link: "/products?category=oneplus&subCategory=buds-pro2", image: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-buds-pro-2/spec-image/OnePlus-Buds-Pro-2-obsidian-black.png", landscape: "https://oasis.opstatics.com/content/dam/oasis/page/oneplus-buds-pro-2/kv/OnePlus-Buds-Pro-2-landscape.jpg" },
       ]
     },
     nothing: {
       label: "NOTHING",
       items: [
-        { name: "PHONE (2)", link: "/category/nothing/phone2", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
-        { name: "PHONE (1)", link: "/category/nothing/phone1", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
-        { name: "EAR (2)", link: "/category/nothing/ear2", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
-        { name: "EAR (A)", link: "/category/nothing/ear-a", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
-        { name: "ACCESSORIES", link: "/category/nothing/accessories", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
+        { name: "PHONE (2)", link: "/products?category=nothing&subCategory=phone2", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
+        { name: "PHONE (1)", link: "/products?category=nothing&subCategory=phone1", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
+        { name: "EAR (2)", link: "/products?category=nothing&subCategory=ear2", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
+        { name: "EAR (A)", link: "/products?category=nothing&subCategory=ear-a", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
+        { name: "ACCESSORIES", link: "/products?category=nothing&subCategory=accessories", image: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg", landscape: "https://akm-img-a-in.tosshub.com/businesstoday/images/story/202503/67c6d78b2b856-nothing-phone-3a-and-phone-3a-pro-043549569-16x9.jpg" },
       ]
     },
   };
@@ -93,24 +93,29 @@ const Navbar = () => {
   // Check active route on location change
   useEffect(() => {
     const path = location.pathname;
+    const search = location.search;
     
-    // Check if we're in a category
-    const categoryMatch = path.match(/^\/category\/([^/]+)/);
-    if (categoryMatch) {
-      const categoryName = categoryMatch[1];
-      // Find the matching category
-      const foundCategory = Object.keys(categories).find(key => 
-        key.toLowerCase() === categoryName.toLowerCase()
-      );
-      if (foundCategory) {
-        setActiveCategory(foundCategory);
+    // Check if we're on products page with category in query params
+    if (path === '/products') {
+      const params = new URLSearchParams(search);
+      const category = params.get('category');
+      if (category) {
+        // Find the matching category
+        const foundCategory = Object.keys(categories).find(key => 
+          key.toLowerCase() === category.toLowerCase()
+        );
+        if (foundCategory) {
+          setActiveCategory(foundCategory);
+        } else {
+          setActiveCategory(null);
+        }
       } else {
         setActiveCategory(null);
       }
     } else {
       setActiveCategory(null);
     }
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
   // Update cart and wishlist counts
   const updateCounts = useCallback(() => {
@@ -189,7 +194,7 @@ const Navbar = () => {
 
   // Check if current path matches a category item
   const isActiveItem = (link) => {
-    return location.pathname === link;
+    return location.pathname + location.search === link;
   };
 
   return (
@@ -326,7 +331,7 @@ const Navbar = () => {
                 <motion.button 
                   onClick={navigateToProducts}
                   className={`px-4 h-full flex items-center text-[12px] font-light tracking-[0.01em] relative transition-all duration-300 uppercase ${
-                    location.pathname === '/products' 
+                    location.pathname === '/products' && !location.search
                       ? "text-white opacity-100" 
                       : "text-white/70 hover:text-white hover:opacity-100"
                   }`}
@@ -339,11 +344,11 @@ const Navbar = () => {
                   {/* Smooth underline indicator */}
                   <motion.div 
                     className={`absolute bottom-0 left-4 right-4 h-[1px] bg-white ${
-                      location.pathname === '/products' ? 'opacity-100' : 'opacity-0'
+                      location.pathname === '/products' && !location.search ? 'opacity-100' : 'opacity-0'
                     }`}
                     initial={false}
                     animate={{
-                      scaleX: location.pathname === '/products' ? 1 : 0
+                      scaleX: location.pathname === '/products' && !location.search ? 1 : 0
                     }}
                     transition={{
                       type: "spring",
@@ -517,7 +522,7 @@ const Navbar = () => {
                     {/* View All link */}
                     <div className="mt-20">
                       <Link
-                        to={`/category/${activeDropdown}`}
+                        to={`/products?category=${activeDropdown}`}
                         onClick={closeAllDropdowns}
                         className="inline-flex items-center text-[15px] font-light text-white/70 hover:text-white transition-all duration-300 group"
                       >
@@ -699,7 +704,7 @@ const Navbar = () => {
                     toggleMenu();
                   }}
                   className={`w-full flex items-center justify-between text-left py-5 text-[17px] font-light tracking-wide border-b border-white/10 transition-all ${
-                    location.pathname === '/products' 
+                    location.pathname === '/products' && !location.search
                       ? 'text-white' 
                       : 'text-white/80 hover:text-white'
                   }`}
@@ -707,7 +712,7 @@ const Navbar = () => {
                 >
                   <div className="flex items-center space-x-4">
                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center border transition-all ${
-                      location.pathname === '/products' 
+                      location.pathname === '/products' && !location.search
                         ? 'bg-white/10 border-white/30' 
                         : 'bg-white/5 border-white/10'
                     }`}>
@@ -718,7 +723,7 @@ const Navbar = () => {
                     <span>ALL PRODUCTS</span>
                   </div>
                   <svg className={`w-5 h-5 ${
-                    location.pathname === '/products' ? 'text-white' : 'text-white/50'
+                    location.pathname === '/products' && !location.search ? 'text-white' : 'text-white/50'
                   }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 5l7 7-7 7" />
                   </svg>

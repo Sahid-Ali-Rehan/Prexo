@@ -19,41 +19,48 @@ const AllCategories = () => {
       name: "iPhone", 
       items: 28, 
       image: "https://www.apple.com/au/iphone-17-pro/images/overview/highlights/highlights_design_endframe__flnga0hibmeu_large.jpg",
-      gradient: "from-blue-500/20 via-purple-500/10 to-transparent"
+      gradient: "from-blue-500/20 via-purple-500/10 to-transparent",
+      description: "Experience the perfect blend of cutting-edge technology and elegant design"
     },
     { 
       name: "Samsung", 
       items: 36, 
       image: "https://img.bgo.one/news-image/202411080823_samsung-galaxy-s25-ultra-leaks-design-performance_13.jpg",
-      gradient: "from-emerald-500/20 via-blue-500/10 to-transparent"
+      gradient: "from-emerald-500/20 via-blue-500/10 to-transparent",
+      description: "Innovation that pushes boundaries with stunning displays"
     },
     { 
       name: "Vivo", 
       items: 45, 
       image: "https://i.ytimg.com/vi/NYR1zShh9_Y/maxresdefault.jpg",
-      gradient: "from-rose-500/20 via-pink-500/10 to-transparent"
+      gradient: "from-rose-500/20 via-pink-500/10 to-transparent",
+      description: "Masterful camera technology and sleek modern designs"
     },
     { 
       name: "Oppo", 
       items: 52, 
       image: "https://arafatelecom.com/wp-content/uploads/2025/05/oppo-a5x.jpg",
-      gradient: "from-green-500/20 via-emerald-500/10 to-transparent"
+      gradient: "from-green-500/20 via-emerald-500/10 to-transparent",
+      description: "Fast charging and vibrant displays for the modern user"
     },
     { 
       name: "OnePlus", 
       items: 64, 
       image: "https://media.wired.com/photos/65307f72d28937d298777dbf/191:100/w_1280,c_limit/OnePlus-Open-Review-Featured-Gear.jpg?mbid=social_retweet",
-      gradient: "from-red-500/20 via-rose-500/10 to-transparent"
+      gradient: "from-red-500/20 via-rose-500/10 to-transparent",
+      description: "Flagship performance at incredible value"
     },
     { 
       name: "Nothing", 
       items: 48, 
       image: "https://www.androidauthority.com/wp-content/uploads/2025/02/Nothing-Phone-3a-and-Phone-3a-Pro-flat-on-a-table.jpg",
-      gradient: "from-gray-400/20 via-white/10 to-transparent"
+      gradient: "from-gray-400/20 via-white/10 to-transparent",
+      description: "Transparent design and unique glyph interface"
     },
   ];
 
   const handleCategoryClick = (categoryName) => {
+    // Navigate to products page with category filter
     navigate(`/products?category=${categoryName.toLowerCase()}`);
   };
 
@@ -203,7 +210,7 @@ const AllCategories = () => {
                 onClick={() => handleCategoryClick(category.name)}
               >
                 {/* Card with glass effect */}
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 group-hover:border-white/20">
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 transition-all duration-500 group-hover:border-white/20 cursor-pointer">
                   {/* Dynamic gradient overlay */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
                   
@@ -238,8 +245,24 @@ const AllCategories = () => {
                         }}
                         transition={{ duration: 0.3 }}
                       >
-                        Cutting-edge technology meets elegant design. Experience the future today.
+                        {category.description}
                       </motion.p>
+                      
+                      {/* Category Filter Info */}
+                      <motion.div
+                        className="mt-4"
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{
+                          opacity: activeIndex === index ? 1 : 0,
+                          y: activeIndex === index ? 0 : 5,
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/5 rounded-full border border-white/10">
+                          <span className="text-xs text-white/60">Click to view all</span>
+                          <span className="text-xs font-medium text-white/80">{category.name} devices</span>
+                        </div>
+                      </motion.div>
                     </div>
 
                     {/* Image container */}
@@ -282,6 +305,22 @@ const AllCategories = () => {
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-xl" />
                   </div>
+
+                  {/* Click hint animation */}
+                  <motion.div
+                    className="absolute bottom-4 left-8"
+                    animate={{
+                      opacity: activeIndex === index ? [0.3, 0.7, 0.3] : 0,
+                    }}
+                    transition={{
+                      repeat: activeIndex === index ? Infinity : 0,
+                      duration: 1.5,
+                    }}
+                  >
+                    <span className="text-xs text-white/60 tracking-wider uppercase">
+                      Click to explore →
+                    </span>
+                  </motion.div>
                 </div>
 
                 {/* Connection line (Apple-like detail) */}
@@ -290,6 +329,22 @@ const AllCategories = () => {
             ))}
           </AnimatePresence>
         </div>
+
+        {/* Browse All Products Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1 }}
+          className="text-center mt-16"
+        >
+          <button
+            onClick={() => navigate('/products')}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-xl border border-white/10 rounded-2xl text-white/80 hover:text-white hover:border-white/30 transition-all duration-300 group"
+          >
+            <span className="text-lg font-light tracking-widest uppercase">Browse All Products</span>
+            <ChevronRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" />
+          </button>
+        </motion.div>
 
         {/* Premium footer text */}
         <motion.div

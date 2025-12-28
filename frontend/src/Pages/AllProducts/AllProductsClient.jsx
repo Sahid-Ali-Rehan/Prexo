@@ -182,7 +182,7 @@ const AllProductsClient = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const maxPriceRef = useRef(10000);
   const containerRef = useRef(null);
 
@@ -248,19 +248,13 @@ const AllProductsClient = () => {
   // Get initial category and subcategory from URL params
   useEffect(() => {
     const category = searchParams.get('category');
-    const subcategory = searchParams.get('subcategory');
+    const subcategory = searchParams.get('subCategory');
     
-    if (category) {
+    if (category || subcategory) {
       setFilters(prev => ({
         ...prev,
-        category: category
-      }));
-    }
-    
-    if (subcategory) {
-      setFilters(prev => ({
-        ...prev,
-        subCategory: subcategory
+        category: category || '',
+        subCategory: subcategory || ''
       }));
     }
   }, [searchParams]);
@@ -273,7 +267,7 @@ const AllProductsClient = () => {
         
         const params = {
           page: 1,
-          limit: 50, // Load more initially to reduce subsequent calls
+          limit: 50,
           sort: filters.sort === 'newest' ? '-createdAt' : 
                 filters.sort === 'low-to-high' ? 'price' : '-price'
         };
@@ -284,28 +278,25 @@ const AllProductsClient = () => {
         let totalCount = data.total || data.totalCount || (Array.isArray(data) ? data.length : 0);
         
         // Find max price for price range
-        // Find max price for price range
-if (productsData.length > 0) {
-  let maxPrice = 0;
-  
-  productsData.forEach(product => {
-    // Just use the original price for max calculation
-    const price = product.price || 0;
-    if (price > maxPrice) {
-      maxPrice = price;
-    }
-  });
-  
-  // Always update filters with the max price found
-  setFilters(prev => ({
-    ...prev,
-    priceRange: [0, maxPrice],
-    minPrice: 0,
-    maxPrice: maxPrice
-  }));
-  
-  maxPriceRef.current = maxPrice || 10000;
-}        
+        if (productsData.length > 0) {
+          let maxPrice = 0;
+          
+          productsData.forEach(product => {
+            const price = product.price || 0;
+            if (price > maxPrice) {
+              maxPrice = price;
+            }
+          });
+          
+          setFilters(prev => ({
+            ...prev,
+            priceRange: [0, maxPrice],
+            minPrice: 0,
+            maxPrice: maxPrice
+          }));
+          
+          maxPriceRef.current = maxPrice || 10000;
+        }        
         setProducts(productsData);
         setTotalProducts(totalCount);
         setDisplayedProducts(productsData.length);
@@ -328,6 +319,21 @@ if (productsData.length > 0) {
     
     fetchInitialData();
   }, []);
+
+  // Update URL when filters change
+  useEffect(() => {
+    const params = new URLSearchParams();
+    
+    if (filters.category) params.set('category', filters.category);
+    if (filters.subCategory) params.set('subCategory', filters.subCategory);
+    if (filters.search) params.set('search', filters.search);
+    if (filters.sort !== 'newest') params.set('sort', filters.sort);
+    if (filters.campaign) params.set('campaign', filters.campaign);
+    if (filters.campaignName) params.set('campaignName', filters.campaignName);
+    
+    // Update URL without page reload
+    navigate(`/products?${params.toString()}`, { replace: true });
+  }, [filters, navigate]);
 
   // Filter products locally after initial load
   useEffect(() => {
@@ -404,7 +410,7 @@ if (productsData.length > 0) {
         setDisplayedProducts(filteredProducts.length);
         setHasMoreProducts(filteredProducts.length > paginatedProducts.length);
         setIsFilterLoading(false);
-      }, 300); // 300ms delay for smooth UI experience
+      }, 300);
       
       return () => clearTimeout(timeoutId);
     }
@@ -424,7 +430,6 @@ if (productsData.length > 0) {
     });
     
     setCurrentPage(1);
-    // Don't scroll to top on filter change
   };
 
   const handlePriceChange = (e, index) => {
@@ -449,23 +454,24 @@ if (productsData.length > 0) {
     return [...new Set(values)].filter(val => val !== null && val !== undefined && val !== '');
   };
 
-const calculateDiscountedPrice = (price, discount, campaignDiscount, campaignFinalPrice) => {
-  if (campaignFinalPrice) {
-    return campaignFinalPrice;
-  }
-  
-  let finalPrice = price;
-  
-  if (discount > 0) {
-    finalPrice = price - (price * (discount / 100));
-  }
-  
-  if (campaignDiscount > 0) {
-    finalPrice = finalPrice - (finalPrice * (campaignDiscount / 100));
-  }
-  
-  return Math.round(finalPrice);
-};
+  const calculateDiscountedPrice = (price, discount, campaignDiscount, campaignFinalPrice) => {
+    if (campaignFinalPrice) {
+      return campaignFinalPrice;
+    }
+    
+    let finalPrice = price;
+    
+    if (discount > 0) {
+      finalPrice = price - (price * (discount / 100));
+    }
+    
+    if (campaignDiscount > 0) {
+      finalPrice = finalPrice - (finalPrice * (campaignDiscount / 100));
+    }
+    
+    return Math.round(finalPrice);
+  };
+
   const handleViewDetails = (productId) => {
     navigate(`/products/single/${productId}`);
   };
@@ -490,30 +496,31 @@ const calculateDiscountedPrice = (price, discount, campaignDiscount, campaignFin
     );
   };
   
-  // Reset all filters
-const resetFilters = () => {
-  setFilters({
-    search: '',
-    category: '',
-    subCategory: '',
-    color: '',
-    size: '',
-    sort: 'newest',
-    minPrice: 0,
-    maxPrice: maxPriceRef.current, // This will use the updated max price
-    priceRange: [0, maxPriceRef.current],
-    campaign: '',
-    campaignName: ''
-  });
-  
-  setCurrentPage(1);
-};
+  // Reset all filters and URL
+  const resetFilters = () => {
+    setFilters({
+      search: '',
+      category: '',
+      subCategory: '',
+      color: '',
+      size: '',
+      sort: 'newest',
+      minPrice: 0,
+      maxPrice: maxPriceRef.current,
+      priceRange: [0, maxPriceRef.current],
+      campaign: '',
+      campaignName: ''
+    });
+    
+    setCurrentPage(1);
+    navigate('/products', { replace: true });
+  };
 
   // Format price
   const formatPrice = (price) => {
-  if (!price) return '৳0';
-  return `৳${price.toLocaleString()}`;
-};
+    if (!price) return '৳0';
+    return `৳${price.toLocaleString()}`;
+  };
 
   // Handle image hover
   const handleMouseEnter = (productId) => {
@@ -527,7 +534,6 @@ const resetFilters = () => {
   // Load more products
   const loadMoreProducts = () => {
     setCurrentPage(prev => prev + 1);
-    // Don't scroll to top on load more
   };
 
   // Get current displayed products based on filters and pagination
@@ -589,6 +595,22 @@ const resetFilters = () => {
     return filteredProducts.slice(startIndex, endIndex);
   };
 
+  // Show active filters in header
+  const getActiveFilterInfo = () => {
+    if (filters.category && filters.subCategory) {
+      const categoryName = filters.category.charAt(0).toUpperCase() + filters.category.slice(1);
+      const subCategoryName = filters.subCategory.replace(/-/g, ' ').toUpperCase();
+      return `Showing ${categoryName} ${subCategoryName}`;
+    } else if (filters.category) {
+      const categoryName = filters.category.charAt(0).toUpperCase() + filters.category.slice(1);
+      return `Showing ${categoryName} Products`;
+    } else if (filters.subCategory) {
+      const subCategoryName = filters.subCategory.replace(/-/g, ' ').toUpperCase();
+      return `Showing ${subCategoryName}`;
+    }
+    return '';
+  };
+
   if (initialLoading) {
     return (
       <div className="flex flex-col min-h-screen bg-white">
@@ -602,6 +624,7 @@ const resetFilters = () => {
   }
 
   const displayedProductsList = getDisplayedProducts();
+  const activeFilterInfo = getActiveFilterInfo();
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -615,6 +638,31 @@ const resetFilters = () => {
               PREMIUM COLLECTION
             </h1>
             <div className="w-24 h-px bg-black mx-auto mb-6"></div>
+            
+            {/* Active Filter Display */}
+            {activeFilterInfo && (
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-6 p-4 bg-gradient-to-r from-gray-50 to-white border border-gray-200 rounded-xl"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <FaFilter className="w-5 h-5 text-gray-600" />
+                    <p className="text-lg font-light tracking-widest uppercase text-gray-800">
+                      {activeFilterInfo}
+                    </p>
+                  </div>
+                  <button
+                    onClick={resetFilters}
+                    className="text-sm tracking-widest uppercase border-b border-black pb-1 transition-all duration-300 hover:text-gray-600"
+                  >
+                    CLEAR FILTER
+                  </button>
+                </div>
+              </motion.div>
+            )}
+            
             <p className="text-lg font-light tracking-widest uppercase text-gray-600">
               DISCOVER EXCLUSIVE PRODUCTS & CAMPAIGNS
             </p>
@@ -824,18 +872,17 @@ const resetFilters = () => {
                           className="w-full p-3 border-2 border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm tracking-wider transition-all duration-300"
                         />
                       </div>
-                      {/* Max Price Input */}
-<div>
-  <label className="block text-xs tracking-widest uppercase mb-2 text-gray-600">MAX PRICE</label>
-  <input
-    type="number"
-    min={filters.priceRange[0]}
-    max={maxPriceRef.current} // Use the ref here
-    value={filters.priceRange[1]}
-    onChange={(e) => handlePriceChange(e, 1)}
-    className="w-full p-3 border-2 border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm tracking-wider transition-all duration-300"
-  />
-</div>
+                      <div>
+                        <label className="block text-xs tracking-widest uppercase mb-2 text-gray-600">MAX PRICE</label>
+                        <input
+                          type="number"
+                          min={filters.priceRange[0]}
+                          max={maxPriceRef.current}
+                          value={filters.priceRange[1]}
+                          onChange={(e) => handlePriceChange(e, 1)}
+                          className="w-full p-3 border-2 border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent text-sm tracking-wider transition-all duration-300"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -889,6 +936,40 @@ const resetFilters = () => {
                 
                 {/* Mobile filter content */}
                 <div className="space-y-6">
+                  <div>
+                    <h3 className="font-bold text-sm tracking-widest uppercase mb-3">CATEGORY</h3>
+                    <select
+                      name="category"
+                      value={filters.category}
+                      onChange={handleFilterChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg bg-white text-sm tracking-wider"
+                    >
+                      <option value="">ALL CATEGORIES</option>
+                      {getUniqueValues('category').map((category) => (
+                        <option key={category} value={category}>
+                          {category.toUpperCase()}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <h3 className="font-bold text-sm tracking-widest uppercase mb-3">SUBCATEGORY</h3>
+                    <select
+                      name="subCategory"
+                      value={filters.subCategory}
+                      onChange={handleFilterChange}
+                      className="w-full p-3 border-2 border-gray-300 rounded-lg bg-white text-sm tracking-wider"
+                    >
+                      <option value="">ALL SUBCATEGORIES</option>
+                      {getUniqueValues('subCategory').map((subCategory) => (
+                        <option key={subCategory} value={subCategory}>
+                          {subCategory.toUpperCase()}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  
                   <div>
                     <h3 className="font-bold text-sm tracking-widest uppercase mb-3">CAMPAIGN</h3>
                     <select
@@ -1044,8 +1125,8 @@ const resetFilters = () => {
                             <div className="flex flex-col items-end min-w-[80px]">
                               <div className="flex flex-col items-end">
                                 <p className="font-bold text-lg tracking-wider whitespace-nowrap">
-  {formatPrice(discountedPrice)}
-</p>
+                                  {formatPrice(discountedPrice)}
+                                </p>
                                 {(product.discount > 0 || isInCampaign) && (
                                   <span className="text-xs line-through text-gray-500 whitespace-nowrap">
                                     {formatPrice(product.price)}

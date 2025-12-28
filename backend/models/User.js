@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
   orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
@@ -14,17 +13,10 @@ const userSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
-    validate: [validator.isEmail, 'Invalid email address'],
   },
   phonenumber: {
     type: String,
     required: true,
-    validate: {
-      validator: function (v) {
-        return /^[+]?[0-9]{7,15}$/.test(v);
-      },
-      message: props => `${props.value} is not a valid phone number!`,
-    },
   },
   password: {
     type: String,

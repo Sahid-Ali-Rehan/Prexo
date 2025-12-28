@@ -119,15 +119,8 @@ const SignupForm = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Password length check (min 8 characters)
-    if (formData.password.length < 8) {
-      toast.error("Password must be at least 8 characters long");
-      setIsLoading(false);
-      return;
-    }
-    
     if (formData.password !== formData.confirmPassword) {
-      toast.error("Passwords do not match");
+      toast.error("Passwords don't match");
       setIsLoading(false);
       return;
     }
@@ -203,7 +196,7 @@ const SignupForm = () => {
             icon={<AiOutlinePhone />}
             type="text"
             name="phonenumber"
-            placeholder="Phone Number"
+            placeholder="Phone with country code"
             value={formData.phonenumber}
             onChange={handleChange}
           />
@@ -212,7 +205,7 @@ const SignupForm = () => {
             icon={<AiOutlineLock />}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="Password (min 8 chars)"
             value={formData.password}
             onChange={handleChange}
             isPassword={true}
