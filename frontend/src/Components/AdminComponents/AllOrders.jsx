@@ -450,7 +450,7 @@ const generateInvoiceDocument = (order) => {
       doc.setFont("helvetica", "bold");
       doc.setFontSize(22);
       doc.setTextColor("#000000");
-      doc.text("Jonab-BD", 40, 65);
+      doc.text("Prexo Gadgets", 40, 65);
     } catch (e) {
       console.log("Image loading error:", e);
     }
@@ -596,7 +596,7 @@ const generateInvoiceDocument = (order) => {
 
   // Footer
   const footerY = pageHeight - 50;
-  const footerText = "Thank you for shopping with Jonab-BD!";
+  const footerText = "Thank you for shopping with Prexo Gadgets!";
 
   doc.setFont("helvetica", "italic");
   doc.setFontSize(10);
@@ -610,14 +610,14 @@ const generateInvoiceDocument = (order) => {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(8);
   doc.setTextColor("#666666");
-  doc.text("@copyright 2025 reserved by Jonab-BD", pageWidth / 2, footerY + 25, { align: "center" });
+  doc.text("@copyright 2025 reserved by Prexo Gadgets", pageWidth / 2, footerY + 25, { align: "center" });
 
   return doc;
 };
   // Download PDF invoice
   const generateInvoice = (order) => {
     const doc = generateInvoiceDocument(order);
-    doc.save(`ruhana-invoice-${order.sequentialNumber}.pdf`);
+    doc.save(`prexo-invoice-${order.sequentialNumber}.pdf`);
   };
 
   // Open invoice in new tab
